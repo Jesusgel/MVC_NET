@@ -1,0 +1,42 @@
+﻿@model Practica_MVC.Models.ViewModels.EditUsuarioVM
+@{
+    ViewBag.Title = "Editar Usuario";
+}
+
+<h2>Editar usuario</h2>
+
+<div class="row">
+    <div class="col-md-12">
+
+        @using (Html.BeginForm("Edit", "Usuarios", FormMethod.Post, new { role = "form", @class = "" }))
+        {
+            @Html.HiddenFor(d=> d.Id)
+            @Html.AntiForgeryToken()
+            @Html.ValidationMessage("error", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.Name);
+            @Html.TextBoxFor(d => d.Name, new { @class = "form-control" })
+            @Html.ValidationMessage("Name", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.Apellido);
+            @Html.TextBoxFor(d => d.Apellido, new { @class = "form-control" })
+            @Html.ValidationMessage("Apellido", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.Correo);
+            @Html.TextBoxFor(d => d.Correo, new { @class = "form-control" })
+            @Html.ValidationMessage("Correo", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.Password);
+            @Html.PasswordFor(d => d.Password, new { @class = "form-control" })
+            @Html.ValidationMessage("Password", new { @class = "text-danger" })
+            <br />
+            @Html.LabelFor(d => d.Repassword)
+            @Html.PasswordFor(d => d.Repassword, new { @class = "form-control" })
+            @Html.ValidationMessage("Repassword", new { @class = "text-danger" })
+            <br />
+            <div>
+                <input type="submit" class="btn btn-success" value="Actualizar" />
+            </div>
+        }
+    </div>
+</div>
